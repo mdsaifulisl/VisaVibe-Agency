@@ -1,0 +1,260 @@
+.tour-header-bg {
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+}
+
+.btn-light-outline-coral {
+  border: 1px solid white;
+  color: white;
+  border-radius: 50px;
+  padding: 8px 20px;
+  transition: 0.3s;
+}
+
+.btn-light-outline-coral:hover {
+  background-color: var(--secondary-coral);
+  border-color: var(--secondary-coral);
+  color: white;
+}
+
+.info-bar {
+  display: flex;
+  justify-content: space-around;
+  border-left: 5px solid var(--primary-teal);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.info-item svg {
+  font-size: 1.5rem;
+}
+
+.booking-card {
+  background: white;
+  z-index: 10;
+}
+
+.border-teal {
+  border: 1px solid var(--primary-teal);
+}
+
+.border-teal:focus {
+  box-shadow: 0 0 5px rgba(0, 128, 128, 0.2);
+  border-color: var(--secondary-coral);
+}
+
+@media (max-width: 991px) {
+  .tour-header-bg {
+    height: 350px;
+  }
+}
+
+
+/* ১. Quill এর ডিফল্ট স্টাইল সবার আগে ইমপোর্ট করুন */
+/* @import "react-quill-new/dist/quill.snow.css"; */
+
+/* ---- Blog Details Page Layout ---- */
+.blog-details-page {
+  background-color: var(--white);
+}
+
+.blog-banner {
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  border-bottom: 5px solid var(--secondary-coral);
+}
+
+.mb-n5 {
+  margin-bottom: -4rem !important;
+}
+
+/* ---- Quill Content Rendering (The Magic) ---- */
+
+/* ডিফল্ট বর্ডার এবং প্যাডিং ফিক্স */
+.blog-body.ql-snow.ql-container {
+  border: none !important;
+  font-family: inherit; /* আপনার সাইটের ফন্ট পাবে */
+}
+
+.blog-body .ql-editor {
+  padding: 0; /* আমরা কন্টেইনার দিয়ে প্যাডিং কন্ট্রোল করব */
+  overflow: visible;
+  height: auto;
+}
+
+/* আপনার কাস্টম স্পেসিং এবং কালার */
+.quill-rendered-content h1,
+.quill-rendered-content h2, 
+.quill-rendered-content h3 {
+  color: var(--primary-teal);
+  font-weight: 700;
+  margin-top: 35px;
+  margin-bottom: 18px;
+}
+
+.quill-rendered-content p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-secondary); /* আপনার ভ্যারিয়েবল থেকে আসবে */
+  margin-bottom: 22px;
+}
+
+/* লিস্ট স্টাইল ফিক্স (Quill-এ অনেক সময় বুলেট হারায়, এটা তা নিশ্চিত করবে) */
+.quill-rendered-content ul, 
+.quill-rendered-content ol {
+  margin-bottom: 25px;
+  padding-left: 1.5rem !important;
+}
+
+.quill-rendered-content li {
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* ইমেজ রেসপন্সিভ এবং শ্যাডো */
+.quill-rendered-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 30px 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* ব্লককোট (Blockquote) ডিজাইন */
+.quill-rendered-content blockquote {
+  border-left: 4px solid var(--secondary-coral) !important;
+  background-color: var(--accent-alice-blue);
+  padding: 20px 30px;
+  font-style: italic;
+  font-size: 1.2rem;
+  margin: 30px 0;
+  color: var(--primary-teal);
+}
+
+/* মোবাইল রেসপন্সিভনেস */
+@media (max-width: 768px) {
+  .blog-banner {
+    height: 300px;
+  }
+  .quill-rendered-content p {
+    font-size: 1.05rem;
+  }
+}
+
+
+
+/*--- Variables Card --- */
+
+.visa-card {
+  transition: all 0.3s ease;
+  border: 1px solid #f1f1f1 !important;
+}
+
+.visa-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 128, 128, 0.1) !important;
+}
+
+.visa-img-box .country-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.btn-outline-teal {
+  border: 2px solid var(--primary-teal);
+  color: var(--primary-teal);
+  transition: 0.3s;
+}
+
+.btn-outline-teal:hover {
+  background-color: var(--primary-teal);
+  color: white;
+}
+
+.hover-bg-teal:hover {
+  background-color: var(--primary-teal);
+}
+
+/* --- End Variables Card --- */
+
+.visa-detail-header {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+}
+
+.mt-n5 {
+  margin-top: -80px !important;
+}
+
+.z-index-10 {
+  z-index: 10;
+}
+
+.bg-alice-blue {
+  background-color: #f0f8ff;
+}
+
+.text-coral {
+  color: #ff6b6b !important;
+}
+
+.btn-coral {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-coral:hover {
+  background-color: #e05a5a;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.icon-box {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-control:focus {
+  background-color: #fff !important;
+  outline: none!important;
+  box-shadow: none!important;
+}
+
+
+/* Quill Description Specific Styles */
+.visa-description-content .ql-editor {
+  font-family: inherit;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a5568;
+}
+
+.visa-description-content h2 {
+  color: var(--primary-teal);
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
