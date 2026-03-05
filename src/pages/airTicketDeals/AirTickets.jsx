@@ -60,9 +60,9 @@ const AirTickets = () => {
                     <div className="flight-deal-card p-3 border rounded-4 d-flex flex-column flex-md-row align-items-center gap-4 transition-all hover-shadow">
                       <img src={deal.image} alt={deal.to} className="rounded-3" style={{width: '120px', height: '100px', objectFit: 'cover'}} />
                       <div className="flex-grow-1">
-                        <div className="d-flex justify-content-between align-items-center mb-2">
+                        <div className="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center text-center mb-2 gap-2 gap-md-0">
                           <h5 className="fw-bold text-dark mb-0">{deal.from} <FaPlaneDeparture className="mx-2 text-teal small" /> {deal.to}</h5>
-                          <span className="badge bg-alice-blue text-teal">{deal.type}</span>
+                          <span className="badge bg-alice-blue text-teal" style={{textAlign:"certer"}}>{deal.type}</span>
                         </div>
                         <p className="text-muted small mb-0">Airline: {deal.airline}</p>
                         <h4 className="text-coral fw-bold mt-2 mb-0">{deal.price}</h4>
