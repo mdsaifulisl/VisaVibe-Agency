@@ -1,20 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { FaBars, FaTimes, FaPlane, FaUser, FaEnvelope, FaPhoneAlt, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; // IonIcons ব্যবহার করা হয়েছে আধুনিক লুকের জন্য
-import { FaFacebookF, FaTwitter as FaTwitterBird, FaInstagram as FaInsta } from 'react-icons/fa';
+import { 
+  FaBars, FaTimes, FaPlane, FaUser, 
+  FaEnvelope, FaPhoneAlt, FaFacebookF, 
+  FaTwitter, FaInstagram 
+} from 'react-icons/fa';
 import '../../assets/style/header.css';
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [showTopHeader, setShowTopHeader] = useState(true);
 
+  // মেনু আইটেমগুলো এক জায়গায় রাখা হলো
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Destinations", path: "/destinations" },
+    { name: "Tours", path: "/tours" },
+    { name: "Visa Service", path: "/visa-service" },
+    { name: "Air Tickets", path: "/air-tickets" },
+    { name: "Blog", path: "/blog" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setShowTopHeader(false);
-      } else {
-        setShowTopHeader(true);
-      }
+      setShowTopHeader(window.scrollY <= 100);
     }; 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -22,7 +33,7 @@ const Header = () => {
 
   return (
     <>
-      {/* Top Header - Mobile এ ডিফল্ট হাইড */}
+      {/* Top Header */}
       <div className={`top-header ${!showTopHeader ? 'hide-top' : ''} d-none d-lg-block`}>
         <div className="container d-flex justify-content-between align-items-center h-100">
           <div className="top-left d-flex gap-4">
@@ -31,47 +42,44 @@ const Header = () => {
           </div>
           <div className="top-right d-flex gap-3">
             <FaFacebookF className="social-icon" />
-            <FaTwitterBird className="social-icon" />
-            <FaInsta className="social-icon" />
+            <FaTwitter className="social-icon" />
+            <FaInstagram className="social-icon" />
           </div>
         </div>
       </div>
 
       {/* Main Navbar */}
-      <header className="main-header">
+      <header className="main-header shadow-sm">
         <div className="container d-flex justify-content-between align-items-center h-100">
           
           {/* Logo */}
           <Link to="/" className="logo">
             <span className="logo-icon"><FaPlane /></span>
-            <span className="logo-text">Your<span className="highlight">Logo</span></span>
+            <span className="logo-text">Expert<span className="highlight">Travel</span></span>
           </Link>
 
           {/* Navigation Menu */}
           <nav className={`nav-menu ${isMobile ? "mobile-show" : ""}`}>
-            {/* Mobile-Only Header inside Drawer */}
             <div className="mobile-drawer-header d-lg-none">
               <div className="logo">
                 <span className="logo-icon"><FaPlane /></span>
-                <span className="logo-text text-white">Your<span className="highlight">Logo</span></span>
+                <span className="logo-text text-white">Expert<span className="highlight">Travel</span></span>
               </div>
-              <button className="close-btn" onClick={() => setIsMobile(false)}>
-                <FaTimes />
-              </button>
+              <button className="close-btn" onClick={() => setIsMobile(false)}><FaTimes /></button>
             </div>
 
-            <NavLink to="/" className="nav-item" onClick={() => setIsMobile(false)}>Home</NavLink>
-            <NavLink to="/about" className="nav-item" onClick={() => setIsMobile(false)}>About</NavLink>
-            <NavLink to="/destinations" className="nav-item" onClick={() => setIsMobile(false)}>Destinations</NavLink>
-            <NavLink to="/tours" className="nav-item" onClick={() => setIsMobile(false)}>Tours</NavLink>
-            <NavLink to="/visa-service" className="nav-item" onClick={() => setIsMobile(false)}>Visa Service</NavLink>
-            <NavLink to="/air-tickets" className="nav-item" onClick={() => setIsMobile(false)}>Air Tickets</NavLink>
-            <NavLink to="/blog" className="nav-item" onClick={() => setIsMobile(false)}>Blog</NavLink>
-            <NavLink to="/contact" className="nav-item" onClick={() => setIsMobile(false)}>Contact</NavLink>
+            {navLinks.map((link, index) => (
+              <NavLink 
+                key={index} 
+                to={link.path} 
+                className="nav-item" 
+                onClick={() => setIsMobile(false)}
+              >
+                {link.name}
+              </NavLink>
+            ))}
+            
             <NavLink to="/login" className="nav-item d-block d-lg-none" onClick={() => setIsMobile(false)}>Login</NavLink>
-
-        
-           
           </nav>
 
           {/* Right Actions */}
@@ -81,8 +89,7 @@ const Header = () => {
               <span>Login</span>
             </Link>
             
-            {/* Hamburger Icon for Mobile */}
-            <button className="mobile-toggle-btn d-lg-none border-0" onClick={() => setIsMobile(true)}>
+            <button className="mobile-toggle-btn d-lg-none border-0 bg-transparent" onClick={() => setIsMobile(true)}>
               <FaBars />
             </button>
           </div>

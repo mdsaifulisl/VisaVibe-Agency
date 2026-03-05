@@ -8,28 +8,30 @@ const destinationsData = [
     id: 1,
     name: "Paris",
     tours: "15 Tours",
-    image: 'https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=600&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=600&q=80',
+    ],
     link: "/destinations/paris"
   },
   {
     id: 2,
     name: "Switzerland",
     tours: "22 Tours",
-    image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=600&q=80',
+    images: ['https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=600&q=80',],
     link: "/destinations/switzerland"
   },
   {
     id: 3,
     name: "London",
     tours: "18 Tours",
-    image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80',
+    images: ['https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80',],
     link: "/destinations/london"
   },
   {
     id: 4,
     name: "Maldives",
     tours: "10 Tours",
-    image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=600&q=80',
+    images: ['https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=600&q=80',],
     link: "/destinations/maldives"
   }
 ];
@@ -56,7 +58,7 @@ const ExplorePlaces = () => {
                 <div className="place-card">
                   <div className="place-image">
                     <img 
-                      src={place.image} 
+                      src={place.images[0]} 
                       alt={place.name} 
                       className="img-fluid w-100 h-100 object-fit-cover"
                     />

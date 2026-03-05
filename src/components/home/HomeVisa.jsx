@@ -13,7 +13,11 @@ const HomeVisa = () => {
             type: "Tourist Visa",
             fee: "5,500 BDT",
             duration: "5-7 Days",
-            image: "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=600&q=80"
+            images: [
+                "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=600&q=80",
+                "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80",
+                "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80"
+            ]
         },
         {
             id: "turkey",
@@ -22,7 +26,11 @@ const HomeVisa = () => {
             type: "Sticker Visa",
             fee: "18,000 BDT",
             duration: "10-15 Days",
-            image: "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=600&q=80"
+            images: [
+                "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=600&q=80",
+                "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80",
+                "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80"
+            ]
         },
         {
             id: "singapore",
@@ -31,7 +39,12 @@ const HomeVisa = () => {
             type: "E-Visa",
             fee: "4,500 BDT",
             duration: "3-5 Days",
-            image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80"
+            images: [
+                
+                "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=600&q=80",
+                "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80",
+                "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80"
+            ]
         }
     ];
 

@@ -4,6 +4,7 @@ import '../../assets/style/about.css';
 
 // components
 import FAQ from '../../components/shared/FAQ';
+import Newsletter from '../../components/shared/Newsletter';
 
 const About = () => {
   return (
@@ -90,6 +91,11 @@ const About = () => {
 
       <section>
         <FAQ />
+      </section>
+
+      {/* news letter */}
+      <section>
+        <Newsletter />
       </section>
     </div>
   );

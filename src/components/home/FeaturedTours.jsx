@@ -2,61 +2,68 @@ import React from 'react';
 import TourCard from '../shared/TourCard';
 
 
-const tourData = [
+const tourList = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25',
     title: "Modern Tokyo Discovery",
     location: "Japan",
     duration: "5 Days",
     price: "$850",
-    rating: 4.8
+    rating: 4.8,
+    images: ['https://images.unsplash.com/photo-1518391846015-55a9cc003b25'],
+    category: "City Tour",
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077',
     title: "Santorini Sunset Dream",
     location: "Greece",
     duration: "7 Days",
     price: "$1200",
-    rating: 5.0
+    rating: 5.0,
+    images: ['https://images.unsplash.com/photo-1533105079780-92b9be482077'],
+    category: "Honeymoon",
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c',
     title: "Dubai Luxury Safari",
     location: "UAE",
-    duration: "4 Days",
-    price: "$990",
-    rating: 4.7
+    duration: "10 Days",
+    price: "$2200",
+    rating: 4.5,
+    images: ['https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80'],
+    category: "Adventure",
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25',
-    title: "Modern Tokyo Discovery",
-    location: "Japan",
-    duration: "5 Days",
-    price: "$850",
-    rating: 4.8
-  },
-  {
-    id: 5,
-    image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077',
     title: "Santorini Sunset Dream",
     location: "Greece",
     duration: "7 Days",
     price: "$1200",
-    rating: 5.0
+    rating: 5.0,
+    images: ['https://images.unsplash.com/photo-1533105079780-92b9be482077'],
+    category: "Honeymoon",
+  },
+  {
+    id: 5,
+    title: "Dubai Luxury Safari",
+    location: "UAE",
+    duration: "10 Days",
+    price: "$2200",
+    rating: 4.5,
+    images: ['https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80'],
+    category: "Adventure",
   },
   {
     id: 6,
-    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c',
-    title: "Dubai Luxury Safari",
-    location: "UAE",
-    duration: "4 Days",
-    price: "$990",
-    rating: 4.7
+    title: "Santorini Sunset Dream",
+    location: "Greece",
+    duration: "7 Days",
+    price: "$1200",
+    rating: 5.0,
+    images: ['https://images.unsplash.com/photo-1533105079780-92b9be482077'],
+    category: "Honeymoon",
   }
+
 ];
 
 const FeaturedTours = () => {
@@ -72,7 +79,7 @@ const FeaturedTours = () => {
         </div>
 
         <div className="row g-4">
-          <TourCard cardData={tourData}/>
+          <TourCard tourData={tourList}/>
         </div>
       </div>
     </section>

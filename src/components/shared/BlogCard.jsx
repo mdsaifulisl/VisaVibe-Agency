@@ -5,11 +5,11 @@ import { FaCalendarAlt, FaArrowRight } from 'react-icons/fa';
 const BlogCard = ({BlogCardData}) => {
     return (
         <>
-            {BlogCardData.map((post) => (
+            {BlogCardData?.map((post) => (
             <div className="col-lg-4 col-md-6" key={post.id}>
               <article className="blog-card border-0 shadow-sm">
                 <div className="blog-img-box">
-                  <img src={post.image} alt={post.title} className="img-fluid" />
+                  <img src={post.images[0]} alt={post.title} className="img-fluid" />
                   <div className="blog-date">
                     <FaCalendarAlt className="me-1" /> {post.date}
                   </div>
@@ -34,3 +34,5 @@ const BlogCard = ({BlogCardData}) => {
 };
 
 export default BlogCard;
+
+

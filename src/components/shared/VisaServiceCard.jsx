@@ -10,7 +10,7 @@ const VisaServiceCard = ({ visa }) => {
       {/* Image Section */}
       <div className="visa-img-box position-relative">
         <img
-          src={visa.image}
+          src={visa.images[0]}
           alt={visa.country}
           className="w-100"
           style={{ height: "180px", objectFit: "cover" }}

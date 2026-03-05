@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaClock, FaMoneyBillWave, FaArrowRight, FaSearch, FaMapMarkerAlt } from 'react-icons/fa';
 import VisaServiceCard from '../../components/shared/VisaServiceCard';
+import Filter from '../../components/shared/Filter';
 // import '../../assets/style/details.css';
 
 // আপনার ডাটা লিস্ট (এখানে একই দেশের একাধিক সার্ভিস থাকতে পারে)
@@ -13,8 +14,11 @@ const visaList = [
     type: "Tourist Visa",
     fee: "5,500 BDT",
     duration: "5-7 Days",
-    image:
+    images:[
       "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80"
+    ],
     continent: "Asia",
   },
   {
@@ -24,8 +28,11 @@ const visaList = [
     type: "E-Visa",
     fee: "4,500 BDT",
     duration: "3-5 Days",
-    image:
+    images: [
       "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80"
+    ],
     continent: "Asia",
   },
   {
@@ -35,8 +42,11 @@ const visaList = [
     type: "Tourist Visa",
     fee: "12,000 BDT",
     duration: "2-3 Days",
-    image:
-      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80",
+    images:
+     [
+       "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80",
+       "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80",
+     ],
     continent: "Middle East",
   },
   {
@@ -46,8 +56,10 @@ const visaList = [
     type: "Tourist E-Visa",
     fee: "6,000 BDT",
     duration: "4-6 Days",
-    image:
+    images: [
       "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80",
+    ],
+      
     continent: "Asia",
   },
   {
@@ -58,8 +70,9 @@ const visaList = [
     fee: "18,000 BDT",
     duration: "10-15 Days",
     categories: "Europe",
-    image:
+    images: [
       "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=600&q=80",
+    ]      ,
     continent: "Europe",
   },
 ];
@@ -94,41 +107,19 @@ const VisaService = () => {
           
           {/* Left Side: Filter & Search Area */}
           <div className="col-lg-3">
-            <div className="filter-sidebar p-4 bg-white shadow-sm rounded-4 position-sticky" style={{top: '100px'}}>
-              <h5 className="fw-bold text-teal mb-4">Find Destination</h5>
-              
-              {/* Search Bar */}
-              <div className="input-group mb-4 search-box border rounded-pill overflow-hidden">
-                <span className="input-group-text bg-white border-0"><FaSearch className="text-muted" /></span>
-                <input 
-                  type="text" 
-                  className="form-control form-focus border-0 shadow-none ps-0 bg-transparent rounded-pill border-0" 
-                  placeholder="Search country..." 
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  
-                />
-              </div>
 
-              {/* Country List Filter */}
-              <div className="d-none d-lg-block">
-                <h6 className="fw-bold text-secondary mb-3">Popular Countries</h6>
-              <div className="country-list d-flex flex-column gap-2">
-                {uniqueCountries.map((country, index) => (
-                  <button 
-                    key={index}
-                    className={`btn text-start d-flex justify-content-between align-items-center py-2 px-3 rounded-3 transition-all ${selectedCountry === country ? 'bg-teal text-white hover-bg-teal hover:text-teal' : 'bg-alice-blue text-dark'}`}
-                    onClick={() => setSelectedCountry(country)}
-                  >
-                    <span><FaMapMarkerAlt className="me-2 small" /> {country}</span>
-                    <span className={`badge ${selectedCountry === country ? 'bg-white text-teal' : 'bg-teal text-white'}`}>
-                      {country === "All" ? visaList.length : visaList.filter(v => v.country === country).length}
-                    </span>
-                  </button>
-                ))}
-              </div>
-              </div>
-            </div>
+
+            <Filter 
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              selectedCategory={selectedCountry}
+              setSelectedCategory={setSelectedCountry}
+              categories={uniqueCountries}
+              fullList={visaList}
+              categoryKey="country"
+              title="Find Your visa"
+            />
+
           </div>
 
           {/* Right Side: Visa Cards Result */}

@@ -49,9 +49,9 @@ const Footer = () => {
             <h5 className="footer-title text-white">Our Services</h5>
             <ul className="footer-links list-unstyled">
               <li><Link to="/air-tickets"><FaArrowRight className="link-icon" /> Air Tickets</Link></li>
-              <li><Link to="/visa"><FaArrowRight className="link-icon" /> Visa Assistance</Link></li>
+              <li><Link to="/visa-service"><FaArrowRight className="link-icon" /> Visa Assistance</Link></li>
               <li><Link to="/hotels"><FaArrowRight className="link-icon" /> Hotel Booking</Link></li>
-              <li><Link to="/packages"><FaArrowRight className="link-icon" /> Tour Packages</Link></li>
+              <li><Link to="/tours"><FaArrowRight className="link-icon" /> Tour Packages</Link></li>
               <li><Link to="/insurance"><FaArrowRight className="link-icon" /> Travel Insurance</Link></li>
             </ul>
           </div>

@@ -36,7 +36,10 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
 }
-
+.opacity-0 { opacity: 0; }
+.opacity-100 { opacity: 1; }
+.z-3 { z-index: 3; }
+.transition-3s { transition: all 0.3s ease-in-out; }
 /* Custom Classes */
 .bg-light-coral {
   background-color: var(--light-coral); /* #FFE5E5 */
@@ -46,6 +49,7 @@ body {
 }
 .text-teal { color: var(--primary-teal); }
 .text-coral { color: var(--secondary-coral); }
+.bg-text-coral { background-color: var(--secondary-coral); }
 .text-white { color: var(--white); }
 
 a {
@@ -71,6 +75,29 @@ ul {
 .additional-details ul li{
   list-style: disc;
 }
+/*  */
+.additional-details2 ol{
+  list-style: decimal;
+}
+.additional-details2 ul{
+  list-style: disc;
+}
+.additional-details2 ul li{
+  list-style: disc;
+}
+.additional-details2 ol li{
+  list-style: decimal;
+}
+.additional-details2 ul li{
+  list-style: disc;
+}
+.additional-details2 h1, .additional-details2 h2, .additional-details2 h3, .additional-details2 h4, .additional-details2 h5, .additional-details2 h6{
+  margin-bottom: 1rem!important;
+}
+.additional-details2 p{
+  margin-bottom: 1rem!important;
+}
+
 
 .form-focus:focus {
   outline: none!important;
