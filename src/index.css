@@ -17,7 +17,7 @@
   /* Overlays */
   --slider-overlay: rgba(0, 64, 64, 0.7);
   
-  /* Transitions & Shadows */
+  /* Transitions & Shadows */ 
   --transition: all 0.3s ease;
   --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
   --shadow-md: 0 4px 10px rgba(0,0,0,0.15);
