@@ -10,6 +10,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import Gallery from "../../components/shared/Gallery";
+import ShareButton from "../../components/shared/ShareButton";
 
 import DestinationsJsonData from "../../data/destinations.json"
 
@@ -149,6 +150,11 @@ const DestinationDetails = () => {
                   <hr />
                   <h3 className="fw-bold mb-4">Gallery</h3>
                   <Gallery images={destination.images} />
+                </div>
+
+                {/* Share Buttons */}
+                <div className="mt-5">
+                  <ShareButton post={destination} />
                 </div>
 
                 

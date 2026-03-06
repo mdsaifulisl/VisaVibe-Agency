@@ -19,6 +19,7 @@ import EnquiryForm from "../../components/shared/EnquiryForm";
 
 // Data
 import ToureJsonData from "../../data/tours.json";
+import ShareButton from "../../components/shared/ShareButton";
 
 const TourDetails = () => {
   const { id } = useParams();
@@ -180,6 +181,11 @@ const TourDetails = () => {
             <div className="mt-5 pt-4">
               <h3 className="fw-bold text-teal mb-4">Tour Captures</h3>
               <Gallery images={tour.images} />
+            </div>
+            {/* Share Button */}
+            <div className="mt-5 pt-4">
+              <h3 className="fw-bold text-teal mb-4">Share This Tour</h3>
+              <ShareButton tour={tour} />
             </div>
           </div>
 

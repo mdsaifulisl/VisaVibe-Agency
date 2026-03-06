@@ -11,8 +11,9 @@ import {
 import "../../assets/style/details.css";
 import Gallery from "../../components/shared/Gallery";
 import EnquiryForm from "../../components/shared/EnquiryForm";
+import ShareButton from "../../components/shared/ShareButton";
 
-// ডাটা সোর্স
+
 import VisaJson from "../../data/visa.json";
 
 const VisaDetails = () => {
@@ -20,15 +21,14 @@ const VisaDetails = () => {
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // ১. ডাইনামিক ডাটা ফাইন্ড লজিক
+
   const visa = VisaJson.find((item) => item.id === id);
 
-  // পেজ লোড হলে উপরে স্ক্রল হবে
+ 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
 
-  // ২. ইমেজ অটো-স্লাইড লজিক (ইমেজ থাকলে তবেই কাজ করবে)
   useEffect(() => {
     if (visa?.images?.length > 1) {
       const timer = setInterval(() => {
@@ -164,6 +164,10 @@ const VisaDetails = () => {
               <div className="mt-5">
                 <h3 className="fw-bold text-teal mb-4">Gallery Photos</h3>
                 <Gallery images={visa.images} />
+              </div>
+
+              <div>
+                <ShareButton post={visa} />
               </div>
             </div>
           </div>
