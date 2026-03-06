@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { FaArrowLeft, FaCalendarAlt, FaUser, FaTag, FaShareAlt, FaClock, FaTimes } from 'react-icons/fa';
+import { FaArrowLeft, FaCalendarAlt, FaUser, FaTag, FaClock } from 'react-icons/fa';
 import '../../assets/style/details.css';
 
 // Data and Components
 import BlogJsonData from "../../data/blogs.json";
 import Gallery from '../../components/shared/Gallery';
+
 import ShareLink from '../../components/shared/ShareLink';
 
 const BlogDetails = () => {
