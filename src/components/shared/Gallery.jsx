@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom'; // এটি ইমপোর্ট করতে হবে
+import { createPortal } from 'react-dom';
 import { FaTimes, FaExpandAlt } from 'react-icons/fa';
 
 const Gallery = ({ images = [] }) => {
@@ -53,12 +53,12 @@ const Gallery = ({ images = [] }) => {
         <div 
           className="modern-lightbox-overlay"
           onClick={() => setSelectedImg(null)}
-          style={{ zIndex: 99999 }} // এখানে খুব হাই ভ্যালু দিন
+          style={{ zIndex: 99999 }}
         >
           <button 
             className="lightbox-close-btn"
             onClick={(e) => {
-              e.stopPropagation(); // যাতে ব্যাকগ্রাউন্ডে ক্লিক না পড়ে
+              e.stopPropagation(); 
               setSelectedImg(null);
             }}
           >
@@ -73,7 +73,7 @@ const Gallery = ({ images = [] }) => {
             />
           </div>
         </div>,
-        document.body // এটি মোডালটিকে সরাসরি বডির চাইল্ড হিসেবে পাঠাবে
+        document.body 
       )}
     </div>
   );

@@ -19,10 +19,10 @@ const DestinationDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  // আপনার স্যাম্পল ডেটা (অ্যারে)
+ 
   const destinationsData = DestinationsJsonData.filter((destination) => destination.id === parseInt(id));
 
-  // আমরা আপাতত প্রথম ডেটাটি ব্যবহার করছি (Real API হলে আপনি useParams ব্যবহার করবেন)
+  
   const destination = destinationsData[0];
 
   useEffect(() => {

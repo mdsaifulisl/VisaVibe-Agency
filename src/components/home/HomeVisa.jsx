@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
-import VisaServiceCard from '../shared/VisaServiceCard'; // আপনার কার্ডের পাথ অনুযায়ী
-import VisaJsonData from '../../data/visa.json'; // আপনার ডাটার পাথ অনুযায়ী
+import VisaServiceCard from '../shared/VisaServiceCard'; 
+import VisaJsonData from '../../data/visa.json'; 
 const HomeVisa = () => {
     // ডামি ডাটা (আপনি চাইলে এটি প্রপস হিসেবেও আনতে পারেন)
     const featuredVisas = VisaJsonData.slice(0, 6);

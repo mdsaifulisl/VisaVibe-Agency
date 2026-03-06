@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const TourCard = ({ tourData }) => {
   const navigate = useNavigate();
 
-  // HTML থেকে ক্লিন টেক্সট বের করার জন্য একটি ফাংশন (ডেসক্রিপশন প্রিভিউয়ের জন্য)
+  
   const extractText = (html) => {
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = html;
@@ -20,7 +20,7 @@ const TourCard = ({ tourData }) => {
         return (
           <div className="col-lg-4 col-md-6 mb-4" key={tour.id}>
             <div className="tour-card shadow-sm border-0 h-100 d-flex flex-column bg-white rounded-4 overflow-hidden">
-              {/* ইমেজ এবং প্রাইস ব্যাজ */}
+     
               <div className="tour-img-wrapper position-relative overflow-hidden">
                 <img
                   src={tour.images[0]}
@@ -47,26 +47,26 @@ const TourCard = ({ tourData }) => {
                   </span>
                 </div>
 
-                {/* টাইটেল - ২ লাইনে ফিক্সড করার জন্য style ব্যবহার করা হয়েছে */}
+               
                 <h5 className="card-title text-teal fw-bold mb-2" style={{ height: "48px", overflow: "hidden" }}>
                   {tour.title}
                 </h5>
 
-                {/* ডেসক্রিপশন প্রিভিউ (নতুন যুক্ত করা হয়েছে) */}
+        
                 <p className="text-muted small mb-3">
                   {plainDescription.length > 80
                     ? `${plainDescription.slice(0, 80)}...`
                     : plainDescription}
                 </p>
 
-                {/* গ্রুপ সাইজ (নতুন ডাটা ফিল্ড থেকে) */}
+                
                 <div className="mb-3">
                   <span className="badge bg-light text-secondary border small fw-normal">
                     <FaUsers className="me-1" /> {tour.groupSize}
                   </span>
                 </div>
 
-                {/* ফুটারে ডিউরেশন এবং আপনার সেই বাটন */}
+              
                 <div className="d-flex justify-content-between align-items-center border-top pt-3 mt-auto">
                   <span className="text-secondary small d-flex align-items-center gap-1">
                     <FaClock className="text-teal" /> {tour.duration}

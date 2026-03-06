@@ -25,7 +25,7 @@ const VisaServiceCard = ({ visa }) => {
       <div className="p-4 d-flex flex-column flex-grow-1">
         <h6 className="text-secondary small fw-bold mb-1">{visa.type}</h6>
         
-        {/* Title with Fixed Height / Line Clamp */}
+    
         <h5 className="fw-bold text-teal mb-1 visa-title-text">
           {visa.title.length > 50 ? `${visa.title.slice(0, 50)}...` : visa.title}
         </h5>

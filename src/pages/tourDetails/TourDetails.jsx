@@ -9,7 +9,7 @@ import {
   FaArrowLeft,
   FaQuoteLeft,
 } from "react-icons/fa";
-// Quill CSS ইম্পোর্ট করা হয়েছে HTML কন্টেন্ট সুন্দর দেখানোর জন্য
+
 import "react-quill-new/dist/quill.snow.css"; 
 import "../../assets/style/details.css";
 
@@ -28,14 +28,14 @@ const TourDetails = () => {
   const navigate = useNavigate();
   const [current, setCurrent] = useState(0);
 
-  // ১. ডাটা ফাইন্ড লজিক (parseInt ব্যবহার করা হয়েছে সঠিক ম্যাচিংয়ের জন্য)
+  
   const tour = ToureJsonData.find((item) => item.id === parseInt(id));
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // ২. স্লাইডার লজিক (৫ সেকেন্ড পর পর ছবি পরিবর্তন)
+  
   useEffect(() => {
     if (tour?.images?.length > 1) {
       const timer = setInterval(() => {
@@ -45,7 +45,7 @@ const TourDetails = () => {
     }
   }, [tour?.images?.length]);
 
-  // যদি ট্যুর খুঁজে না পাওয়া যায়
+  
   if (!tour) {
     return (
       <div className="container py-5 text-center" style={{ minHeight: '60vh' }}>
@@ -137,7 +137,7 @@ const TourDetails = () => {
               </div>
             </div>
 
-            {/* ৩. একীভূত কন্টেন্ট সেকশন (Description) */}
+            {/* 3rd Party Description */}
             {
               tour.description && (
                 <section className="mb-5">

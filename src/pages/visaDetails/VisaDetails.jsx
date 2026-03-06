@@ -38,7 +38,7 @@ const VisaDetails = () => {
     }
   }, [visa?.images?.length]);
 
-  // যদি ডাটা না পাওয়া যায়
+
   if (!visa) {
     return (
       <div className="container py-5 text-center">
@@ -78,7 +78,7 @@ const VisaDetails = () => {
           </p>
         </div>
 
-        {/* স্লাইডার ডটস কন্ট্রোল */}
+   
         {visa.images.length > 1 && (
           <div className="position-absolute bottom-0 start-50 translate-middle-x mb-4 d-flex gap-2 z-index-2">
             {visa.images.map((_, idx) => (

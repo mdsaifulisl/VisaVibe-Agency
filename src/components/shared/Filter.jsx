@@ -8,14 +8,14 @@ const Filter = ({
   setSelectedCategory, 
   categories, 
   fullList, 
-  categoryKey, // 'country' for visa, 'category' for tours
+  categoryKey, 
   title = "Find Destination"
 }) => {
   return (
     <div className="filter-sidebar p-4 bg-white shadow-sm rounded-4 position-sticky" style={{ top: '100px' }}>
       <h5 className="fw-bold text-teal mb-4">{title}</h5>
       
-      {/* Search Bar */}
+      
       <div className="input-group mb-4 search-box border rounded-pill overflow-hidden bg-alice-blue">
         <span className="input-group-text bg-transparent border-0">
           <FaSearch className="text-muted" />

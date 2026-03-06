@@ -25,11 +25,11 @@ const faqData = [
 ];
 
 const FAQ = () => {
-  // কোন আইটেমটি ওপেন হবে তা ট্র্যাক করার জন্য স্টেট
+ 
   const [openId, setOpenId] = useState("collapseOne");
 
   const toggleAccordion = (id) => {
-    setOpenId(openId === id ? null : id); // ক্লিক করলে খুলবে বা বন্ধ হবে
+    setOpenId(openId === id ? null : id); 
   };
 
   return (
@@ -50,7 +50,7 @@ const FAQ = () => {
                     <button 
                       className={`accordion-button ${openId !== item.id ? 'collapsed' : ''} fw-bold text-teal`} 
                       type="button"
-                      onClick={() => toggleAccordion(item.id)} // এখানে ক্লিক লজিক
+                      onClick={() => toggleAccordion(item.id)} 
                     >
                       {item.question}
                     </button>

@@ -7,7 +7,7 @@ const Destinations = () => {
   const navigate = useNavigate();
   const destinationsData = destinationsJsonData;
 
-  // HTML স্ট্রিং থেকে শুধু টেক্সট বের করার ফাংশন (Description Clean করার জন্য)
+
   const stripHtml = (html) => {
     const tmp = document.createElement("DIV");
     tmp.innerHTML = html;

@@ -1,6 +1,6 @@
 import React from 'react';
 import TourCard from '../shared/TourCard';
-import TourJsonData from '../../data/tours.json'; // Replace with your actual JSON data
+import TourJsonData from '../../data/tours.json'; 
 
 
 

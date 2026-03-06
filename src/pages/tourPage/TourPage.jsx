@@ -9,10 +9,10 @@ const TourPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // ইউনিক ক্যাটাগরি বের করা
+
   const uniqueCategories = ["All", ...new Set(tourList.map(item => item.category))];
 
-  // ফিল্টার লজিক
+
   const filteredTours = tourList.filter(tour => {
     const matchesSearch = tour.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
                           tour.location.toLowerCase().includes(searchTerm.toLowerCase());
@@ -46,7 +46,7 @@ const TourPage = () => {
               setSelectedCategory={setSelectedCategory}
               categories={uniqueCategories}
               fullList={tourList}
-              categoryKey="category" // ট্যুর লিস্টের জন্য কি হবে 'category'
+              categoryKey="category" 
               title="Plan Your Trip"
             />
           </div>

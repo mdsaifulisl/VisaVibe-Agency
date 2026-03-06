@@ -9,7 +9,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     console.log("Login Attempt:", formData);
-    // আপনার Firebase বা API কল এখানে হবে
+    
   };
 
   return (
