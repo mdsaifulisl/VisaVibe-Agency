@@ -1,7 +1,7 @@
 import React from "react";
 import { FaShareAlt } from "react-icons/fa";
 
-const Sharebutton = ({ post }) => {
+const ShareButton = ({ post }) => {
   // Optional Chaining ব্যবহার করা হয়েছে যাতে ডাটা না থাকলে এরর না দেয়
   const titledata = post?.title || "Travel Guide"; 
 
@@ -44,4 +44,4 @@ const Sharebutton = ({ post }) => {
   );
 };
 
-export default Sharebutton;
+export default ShareButton;
