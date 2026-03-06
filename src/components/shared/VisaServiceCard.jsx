@@ -30,23 +30,41 @@ const VisaServiceCard = ({ visa }) => {
           {visa.title.length > 50 ? `${visa.title.slice(0, 50)}...` : visa.title}
         </h5>
 
-        {/* এই ডিভটি উপরের কন্টেন্ট এবং নিচের বাটনের মাঝখানে জায়গা তৈরি করবে */}
         <div className="mt-auto">
           <hr className="my-3 opacity-10" />
           
           <div className="d-flex flex-column gap-2 mb-4">
-            <div className="d-flex justify-content-between small">
+            {
+              visa.fee && (
+                <div className="d-flex justify-content-between small">
               <span className="text-muted">
                 <FaMoneyBillWave className="me-1 text-coral" /> Fee
               </span>
               <span className="fw-bold text-dark">{visa.fee}</span>
             </div>
-            <div className="d-flex justify-content-between small">
+              )
+            }
+            {
+              visa.duration && (
+                <div className="d-flex justify-content-between small">
               <span className="text-muted">
-                <FaClock className="me-1 text-coral" /> Time
+                <FaClock className="me-1 text-coral" /> Duration
               </span>
               <span className="fw-bold text-dark">{visa.duration}</span>
             </div>
+              )
+            }
+            
+            {
+              visa.validity && (
+                <div className="d-flex justify-content-between small">
+              <span className="text-muted">
+                <FaClock className="me-1 text-coral" /> Validity
+              </span>
+              <span className="fw-bold text-dark">{visa.validity}</span>
+            </div>
+              )
+            }
           </div>
 
           <button

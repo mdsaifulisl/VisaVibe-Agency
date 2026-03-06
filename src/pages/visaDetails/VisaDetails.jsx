@@ -7,60 +7,50 @@ import {
   FaCheckCircle,
   FaGlobe,
   FaFileAlt,
-  FaHeadset,
 } from "react-icons/fa";
 import "../../assets/style/details.css";
 import Gallery from "../../components/shared/Gallery";
 import EnquiryForm from "../../components/shared/EnquiryForm";
+
+// ডাটা সোর্স
+import VisaJson from "../../data/visa.json";
 
 const VisaDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const visa = {
-    id: id,
-    title: "Thailand Visa Application & Requirements for Bangladeshis",
-    country: "Thailand",
-    type: "Tourist Sticker Visa",
-    fee: "5,500 BDT",
-    duration: "5-7 Working Days",
-    validity: "90 Days",
-    entry: "Single Entry",
-    // এখানে আপনার ইমেজগুলো লিস্ট আকারে আছে
-    images: [
-      "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1200&q=80",
-    ],
-    description:
-      "Thailand is one of the most popular tourist destinations for Bangladeshis. We provide comprehensive support for Thailand sticker visas, ensuring all your documents are perfectly organized for a high success rate.",
-    requirements: [
-      "Original Passport with at least 7 months validity",
-      "Two recent 3.5cm x 4.5cm photographs (White background)",
-      "Last 6 months bank statement & solvency certificate",
-      "Professional documents (NOC/Trade License/Student ID)",
-      "Visiting card and copy of NID/Birth Certificate",
-    ],
-    anotherdetals: ` <h3>1. Additional Details </h3>
-    <p> If you have any further questions or need any additional assistance, please don't hesitate to reach out to us.</p>
-    <p> Our team is here to help you every step of the way, providing personalized guidance and support to ensure your visa application is successful.</p>
-    <p> Thank you for considering our services and we look forward to serving you with a smooth and hassle-free visa application process.</p>
-    <ul>
-      <li>Our team is here to help you every step of the way, providing personalized guidance and support to ensure your visa application is successful.</li>
-      <li>Thank you for considering our services and we look forward to serving you with a smooth and hassle-free visa application process.</li>
-    </ul>
-    `,
-  };
+  // ১. ডাইনামিক ডাটা ফাইন্ড লজিক
+  const visa = VisaJson.find((item) => item.id === id);
 
-  // ইমেজ অটো-স্লাইড করার জন্য useEffect
+  // পেজ লোড হলে উপরে স্ক্রল হবে
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === visa.images.length - 1 ? 0 : prevIndex + 1,
-      );
-    }, 5000); // ৫ সেকেন্ড পর পর ইমেজ পরিবর্তন হবে
-    return () => clearInterval(timer);
-  }, [visa.images.length]);
+    window.scrollTo(0, 0);
+  }, [id]);
+
+  // ২. ইমেজ অটো-স্লাইড লজিক (ইমেজ থাকলে তবেই কাজ করবে)
+  useEffect(() => {
+    if (visa?.images?.length > 1) {
+      const timer = setInterval(() => {
+        setCurrentImageIndex((prevIndex) =>
+          prevIndex === visa.images.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 5000);
+      return () => clearInterval(timer);
+    }
+  }, [visa?.images?.length]);
+
+  // যদি ডাটা না পাওয়া যায়
+  if (!visa) {
+    return (
+      <div className="container py-5 text-center">
+        <h2 className="text-danger">Visa Service Not Found!</h2>
+        <button className="btn btn-teal mt-3" onClick={() => navigate("/visa")}>
+          Back to Visa Services
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="visa-details-page pb-5">
@@ -71,40 +61,40 @@ const VisaDetails = () => {
           height: "450px",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          transition: "background-image 1s ease-in-out", // ইমেজ পরিবর্তনের ট্রানজিশন
+          transition: "background-image 1.2s ease-in-out",
           backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${visa.images[currentImageIndex]})`,
         }}
       >
         <div className="container position-relative z-index-2">
           <button
             onClick={() => navigate(-1)}
-            className="btn btn-outline-light rounded-pill mb-4 px-4 shadow-sm"
+            className="btn btn-outline-light rounded-pill mb-4 px-4 shadow-sm glass-effect border-0"
           >
-            <FaArrowLeft className="me-2" /> Back to Services
+            <FaArrowLeft className="me-2" /> Back
           </button>
-          <h1 className="display-4 fw-bold mb-2">
+          <h1 className="display-4 fw-bold mb-2 animate__animated animate__fadeInDown">
             {visa.country} Visa Assistance
           </h1>
-          <p className="lead fw-medium">
-            <FaGlobe className="text-coral me-2" /> {visa.type}
+          <p className="lead fw-medium opacity-90">
+            <FaGlobe className="text-coral me-2" /> {visa.type? visa.type : ""} | {visa.continent? visa.continent : ""}
           </p>
         </div>
 
         {/* স্লাইডার ডটস কন্ট্রোল */}
-        <div className="position-absolute bottom-0 start-50 translate-middle-x mb-4 d-flex gap-2">
-          {visa.images.map((_, idx) => (
-            <div
-              key={idx}
-              onClick={() => setCurrentImageIndex(idx)}
-              className={`cursor-pointer rounded-circle ${
-                currentImageIndex === idx
-                  ? "bg-coral shadow"
-                  : "bg-white opacity-50"
-              }`}
-              style={{ width: "12px", height: "12px", transition: "0.3s" }}
-            ></div>
-          ))}
-        </div>
+        {visa.images.length > 1 && (
+          <div className="position-absolute bottom-0 start-50 translate-middle-x mb-4 d-flex gap-2 z-index-2">
+            {visa.images.map((_, idx) => (
+              <div
+                key={idx}
+                onClick={() => setCurrentImageIndex(idx)}
+                className={`cursor-pointer rounded-circle ${
+                  currentImageIndex === idx ? "bg-coral shadow scale-125" : "bg-white opacity-50"
+                }`}
+                style={{ width: "12px", height: "12px", transition: "0.3s" }}
+              ></div>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="container mt-n5 position-relative z-index-10">
@@ -112,112 +102,92 @@ const VisaDetails = () => {
           {/* Main Info */}
           <div className="col-lg-8">
             <div className="card border-0 shadow-lg rounded-4 p-4 p-md-5 bg-white">
-              <h3 className="fw-bold text-teal mb-4">Visa Overview</h3>
-              <p className="text-secondary fs-5 mb-5">{visa.description}</p>
+              <h3 className="fw-bold text-teal mb-4 d-flex align-items-center gap-2">
+                 Visa Overview
+              </h3>
+              
+              {/* description এখন HTML রেন্ডার করবে যদি ট্যাগ থাকে */}
+              {
+                visa.description && (
+                  <div 
+                    className="text-secondary fs-5 mb-5 additional-details"
+                    dangerouslySetInnerHTML={{ __html: visa.description }}
+                  />
+                )
+              }
 
               <div className="row g-4 mb-5">
                 <div className="col-md-6">
-                  <div
-                    className="p-3 rounded-3 d-flex align-items-center gap-3"
-                    style={{ backgroundColor: "var(--accent-alice-blue)" }}
-                  >
-                    <div
-                      className="icon-box bg-white p-3 rounded-circle shadow-sm"
-                      style={{ color: "var(--secondary-coral)" }}
-                    >
+                  <div className="p-3 rounded-4 d-flex align-items-center gap-3 bg-alice-blue border border-light">
+                    <div className="icon-box bg-white p-3 rounded-circle shadow-sm text-coral">
                       <FaMoneyBillWave size={24} />
                     </div>
                     <div>
-                      <small className="text-muted d-block">Visa Fee</small>
-                      <strong
-                        className="fs-5"
-                        style={{ color: "var(--primary-teal)" }}
-                      >
-                        {visa.fee}
-                      </strong>
+                      <small className="text-muted d-block text-uppercase fw-bold small">Visa Fee</small>
+                      <strong className="fs-5 text-teal">{visa.fee}</strong>
                     </div>
                   </div>
                 </div>
                 <div className="col-md-6">
-                  <div
-                    className="p-3 rounded-3 d-flex align-items-center gap-3"
-                    style={{ backgroundColor: "var(--accent-alice-blue)" }}
-                  >
-                    <div
-                      className="icon-box bg-white p-3 rounded-circle shadow-sm"
-                      style={{ color: "var(--secondary-coral)" }}
-                    >
+                  <div className="p-3 rounded-4 d-flex align-items-center gap-3 bg-alice-blue border border-light">
+                    <div className="icon-box bg-white p-3 rounded-circle shadow-sm text-coral">
                       <FaClock size={24} />
                     </div>
                     <div>
-                      <small className="text-muted d-block">
-                        Processing Time
-                      </small>
-                      <strong
-                        className="fs-5"
-                        style={{ color: "var(--primary-teal)" }}
-                      >
-                        {visa.duration}
-                      </strong>
+                      <small className="text-muted d-block text-uppercase fw-bold small">Processing Time</small>
+                      <strong className="fs-5 text-teal">{visa.duration}</strong>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Requirements Section */}
-              <h4
-                className="fw-bold mb-4"
-                style={{ color: "var(--primary-teal)" }}
-              >
-                <FaFileAlt
-                  className="me-2"
-                  style={{ color: "var(--secondary-coral)" }}
-                />{" "}
-                Required Documents
-              </h4>
-              <ul className="list-unstyled mb-2">
-                {visa.requirements.map((req, index) => (
-                  <li
-                    key={index}
-                    className="mb-3 d-flex align-items-start gap-3"
-                  >
-                    <FaCheckCircle
-                      className="mt-1 flex-shrink-0"
-                      style={{ color: "var(--primary-teal)" }}
-                    />
-                    <span className="text-secondary">{req}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Additional Details */}
-              {visa.anotherdetals && (
-                <div className="another-details-box mt-4 pt-4 border-top">
-                  <div className="ql-snow">
-                    <div className="ql-editor p-0">
-                      <div
-                        className="text-secondary additional-details"
-                        dangerouslySetInnerHTML={{ __html: visa.anotherdetals }}
-                      />
-                    </div>
+              {
+                visa.requirements.length > 0 && (
+                  <div className="requirements-box p-4 rounded-4 bg-light border mb-5">
+                    <h4 className="fw-bold mb-4 text-teal d-flex align-items-center gap-2">
+                      <FaFileAlt className="text-coral" /> Required Documents
+                    </h4>
+                    <ul className="list-unstyled mb-0">
+                      {visa.requirements.map((req, index) => (
+                        <li key={index} className="mb-3 d-flex align-items-start gap-3">
+                          <FaCheckCircle className="mt-1 flex-shrink-0 text-teal" />
+                          <span className="text-dark fw-medium">{req}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
-              )}
+                )
+              }
+              
 
-              <div className="mt-0">
-                <h3 className="fw-bold mb-3">Gallery Photos</h3>
+              <div className="mt-5">
+                <h3 className="fw-bold text-teal mb-4">Gallery Photos</h3>
                 <Gallery images={visa.images} />
               </div>
             </div>
           </div>
 
           {/* Sidebar Form */}
-
           <div className="col-lg-4">
-            <EnquiryForm
-              title="Visa Inquiry"
-              subtitle="Ask our visa experts for Thailand specific requirements."
-            />
+
+            <div className="position-sticky" style={{ top: "100px" }}>
+              <div className="card border-0 shadow-lg rounded-4 overflow-hidden mb-4">
+                <div className="bg-text-coral text-white p-4 text-center">
+                  <small className="d-block opacity-75 text-uppercase fw-bold mb-1">Total Package Cost</small>
+                  <h2 className="fw-bold mb-0 text-white fs-3">{visa.fee} <span className="fs-6 fw-normal">/ person</span></h2>
+                </div>
+
+                <div className="pt-4 bg-white">
+                  
+                  <EnquiryForm title={`${visa.country} Visa Inquiry`}
+                subtitle={`Get expert help for your ${visa.country} visa application.`}
+                />
+                </div>
+              </div>
+              
+            </div>
+
           </div>
         </div>
       </div>

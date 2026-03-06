@@ -11,7 +11,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-page pb-5">
+    <div className="contact-page pb-5 overflow-hidden">
       {/* Hero Header */}
       <section className="about-hero d-flex align-items-center justify-content-center text-center text-white mb-5" 
         style={{backgroundImage: `linear-gradient(rgba(0, 128, 128, 0.8), rgba(0, 128, 128, 0.8)), url('https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=1200&q=80')`, height: '300px'}}>

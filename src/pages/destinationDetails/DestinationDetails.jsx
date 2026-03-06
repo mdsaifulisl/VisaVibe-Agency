@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   FaMapMarkerAlt,
   FaClock,
@@ -11,35 +11,14 @@ import {
 } from "react-icons/fa";
 import Gallery from "../../components/shared/Gallery";
 
+import DestinationsJsonData from "../../data/destinations.json"
+
 const DestinationDetails = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
 
   // আপনার স্যাম্পল ডেটা (অ্যারে)
-  const destinationsData = [
-    {
-      id: 1,
-      title: "Modern Tokyo Discovery",
-      location: "Japan",
-      price: "$850",
-      rating: 4.8,
-      duration: "5 Days",
-      description:
-        "<h3>Experience Tokyo</h3><p>Explore the neon-lit streets of <strong>Shinjuku</strong> and the temples of <strong>Asakusa</strong>.</p><ul><li>Visit Meiji Shrine</li><li>Authentic Ramen workshop</li></ul>",
-      images: [
-        "https://images.unsplash.com/photo-1518391846015-55a9cc003b25",
-        "https://images.unsplash.com/photo-1503899036084-c55cdd92da26",
-        "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf",
-        "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e",
-        "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b",
-      ],
-      highlights: [
-        "Luxury Stay",
-        "Local Guide",
-        "Entrance Fees Included",
-        "Free WiFi",
-      ],
-    },
-  ];
+  const destinationsData = DestinationsJsonData.filter((destination) => destination.id === parseInt(id));
 
   // আমরা আপাতত প্রথম ডেটাটি ব্যবহার করছি (Real API হলে আপনি useParams ব্যবহার করবেন)
   const destination = destinationsData[0];

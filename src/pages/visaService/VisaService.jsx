@@ -4,84 +4,16 @@ import VisaServiceCard from '../../components/shared/VisaServiceCard';
 import Filter from '../../components/shared/Filter';
 // import '../../assets/style/details.css';
 
-// আপনার ডাটা লিস্ট (এখানে একই দেশের একাধিক সার্ভিস থাকতে পারে)
 
-const visaList = [
-  {
-    id: "thailand",
-    title: "Sri Lanka Visa Application & Requirements for Bangladeshis",
-    country: "Thailand",
-    type: "Tourist Visa",
-    fee: "5,500 BDT",
-    duration: "5-7 Days",
-    images:[
-      "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80"
-    ],
-    continent: "Asia",
-  },
-  {
-    id: "singapore",
-    title: "Sri Lanka Visa Application & ",
-    country: "Singapore",
-    type: "E-Visa",
-    fee: "4,500 BDT",
-    duration: "3-5 Days",
-    images: [
-      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80"
-    ],
-    continent: "Asia",
-  },
-  {
-    id: "dubai",
-    title: "Sri Lanka Visa Application & Requirements for Bangladeshis",
-    country: "Dubai (UAE)",
-    type: "Tourist Visa",
-    fee: "12,000 BDT",
-    duration: "2-3 Days",
-    images:
-     [
-       "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80",
-       "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80",
-     ],
-    continent: "Middle East",
-  },
-  {
-    id: "malaysia",
-    title: "Sri Lanka Visa Application & Requirements for Bangladeshis",
-    country: "Malaysia",
-    type: "Tourist E-Visa",
-    fee: "6,000 BDT",
-    duration: "4-6 Days",
-    images: [
-      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=600&q=80",
-    ],
-      
-    continent: "Asia",
-  },
-  {
-    id: "turkey",
-    title: "Sri Lanka Visa Application & Requirements for Bangladeshis",
-    country: "Turkey",
-    type: "Sticker Visa",
-    fee: "18,000 BDT",
-    duration: "10-15 Days",
-    categories: "Europe",
-    images: [
-      "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=600&q=80",
-    ]      ,
-    continent: "Europe",
-  },
-];
+import VisaJsonData from "../../data/visa.json"; 
+
+const visaList = VisaJsonData;
 
 const VisaService = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("All");
 
-  // ১. ইউনিক দেশের নামগুলো বের করা (ফিল্টার বাটনের জন্য)
+
   const uniqueCountries = ["All", ...new Set(visaList.map(item => item.country))];
 
   // ২. সার্চ এবং কান্ট্রি ক্লিক অনুযায়ী ফিল্টার লজিক

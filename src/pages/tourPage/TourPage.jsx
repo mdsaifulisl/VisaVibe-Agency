@@ -2,39 +2,8 @@ import React, { useState } from 'react';
 import { FaHistory } from 'react-icons/fa';
 import TourCard from '../../components/shared/TourCard';
 import Filter from '../../components/shared/Filter'; // ফিল্টার ইমপোর্ট করা হলো
-
-const tourList = [
-  {
-    id: 1,
-    title: "Modern Tokyo Discovery",
-    location: "Japan",
-    duration: "5 Days",
-    price: "$850",
-    rating: 4.8,
-    images: ['https://images.unsplash.com/photo-1518391846015-55a9cc003b25'],
-    category: "City Tour",
-  },
-  {
-    id: 2,
-    title: "Santorini Sunset Dream",
-    location: "Greece",
-    duration: "7 Days",
-    price: "$1200",
-    rating: 5.0,
-    images: ['https://images.unsplash.com/photo-1533105079780-92b9be482077'],
-    category: "Honeymoon",
-  },
-  {
-    id: 3,
-    title: "Dubai Luxury Safari",
-    location: "UAE",
-    duration: "4 Days",
-    price: "$990",
-    rating: 4.7,
-    images: ['https://images.unsplash.com/photo-1512453979798-5ea266f8880c'],
-    category: "Adventure",
-  }
-];
+import TourJsonData from '../../data/tours.json';
+const tourList = TourJsonData;
 
 const TourPage = () => {
   const [searchTerm, setSearchTerm] = useState("");

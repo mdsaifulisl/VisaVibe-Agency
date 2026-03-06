@@ -2,51 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import VisaServiceCard from '../shared/VisaServiceCard'; // আপনার কার্ডের পাথ অনুযায়ী
-
+import VisaJsonData from '../../data/visa.json'; // আপনার ডাটার পাথ অনুযায়ী
 const HomeVisa = () => {
     // ডামি ডাটা (আপনি চাইলে এটি প্রপস হিসেবেও আনতে পারেন)
-    const featuredVisas = [
-        {
-            id: "thailand",
-            title: "Thailand Tourist Visa Application for Bangladeshis",
-            country: "Thailand",
-            type: "Tourist Visa",
-            fee: "5,500 BDT",
-            duration: "5-7 Days",
-            images: [
-                "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=600&q=80",
-                "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80",
-                "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80"
-            ]
-        },
-        {
-            id: "turkey",
-            title: "Turkey Sticker Visa Application Requirements",
-            country: "Turkey",
-            type: "Sticker Visa",
-            fee: "18,000 BDT",
-            duration: "10-15 Days",
-            images: [
-                "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=600&q=80",
-                "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80",
-                "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80"
-            ]
-        },
-        {
-            id: "singapore",
-            title: "Singapore E-Visa Assistance & Guidelines",
-            country: "Singapore",
-            type: "E-Visa",
-            fee: "4,500 BDT",
-            duration: "3-5 Days",
-            images: [
-                
-                "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=600&q=80",
-                "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=600&q=80",
-                "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80"
-            ]
-        }
-    ];
+    const featuredVisas = VisaJsonData.slice(0, 6);
 
     return (
         <section className="home-visa-section py-5 bg-alice-blue">
