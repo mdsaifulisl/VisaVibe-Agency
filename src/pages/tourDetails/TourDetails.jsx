@@ -21,6 +21,7 @@ import EnquiryForm from "../../components/shared/EnquiryForm";
 import ToureJsonData from "../../data/tours.json";
 import ShareButton from "../../components/shared/ShareButton";
 
+
 const TourDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
