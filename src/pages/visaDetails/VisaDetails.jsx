@@ -17,6 +17,7 @@ import EnquiryForm from "../../components/shared/EnquiryForm";
 import VisaJson from "../../data/visa.json";
 import ShareButton from "../../components/shared/ShareButton";
 
+
 const VisaDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
