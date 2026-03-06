@@ -10,6 +10,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import Gallery from "../../components/shared/Gallery";
+
 import ShareButton from "../../components/shared/ShareButton";
 
 import DestinationsJsonData from "../../data/destinations.json"
