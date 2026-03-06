@@ -9,11 +9,12 @@ import {
   FaCalendarAlt,
   FaTimes,
 } from "react-icons/fa";
+import DestinationsJsonData from "../../data/destinations.json";
 import Gallery from "../../components/shared/Gallery";
 
 import ShareButton from "../../components/shared/ShareButton";
 
-import DestinationsJsonData from "../../data/destinations.json"
+
 
 const DestinationDetails = () => {
   const navigate = useNavigate();
