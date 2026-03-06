@@ -6,7 +6,7 @@ import '../../assets/style/details.css';
 // Data and Components
 import BlogJsonData from "../../data/blogs.json";
 import Gallery from '../../components/shared/Gallery';
-import Sharebutton from '../../components/shared/Sharebutton';
+import ShareLink from '../../components/shared/ShareLink';
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -121,7 +121,7 @@ const BlogDetails = () => {
             </div>
 
             {/* Share Section */}
-            <Sharebutton post={post} />
+            <ShareLink post={post} />
           </div>
 
           {/* Sidebar */}

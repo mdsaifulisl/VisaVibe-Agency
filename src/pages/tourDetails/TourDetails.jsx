@@ -19,7 +19,8 @@ import EnquiryForm from "../../components/shared/EnquiryForm";
 
 // Data
 import ToureJsonData from "../../data/tours.json";
-import ShareButton from "../../components/shared/ShareButton";
+
+import ShareLink from "../../components/shared/ShareLink";
 
 
 const TourDetails = () => {
@@ -186,7 +187,7 @@ const TourDetails = () => {
             {/* Share Button */}
             <div className="mt-5 pt-4">
               <h3 className="fw-bold text-teal mb-4">Share This Tour</h3>
-              <ShareButton tour={tour} />
+              <ShareLink tour={tour} />
             </div>
           </div>
 

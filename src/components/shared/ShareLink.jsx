@@ -1,7 +1,7 @@
 import React from "react";
 import { FaShareAlt } from "react-icons/fa";
 
-const ShareButton = ({ post }) => {
+const ShareLink = ({ post }) => {
   const titledata = post?.title || "Travel Guide"; 
 
   const handleShare = async () => {
@@ -43,4 +43,4 @@ const ShareButton = ({ post }) => {
   );
 };
 
-export default ShareButton;
+export default ShareLink;

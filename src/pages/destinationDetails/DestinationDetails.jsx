@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import DestinationsJsonData from "../../data/destinations.json";
 import Gallery from "../../components/shared/Gallery";
+import ShareLink from "../../components/shared/ShareLink";
 
 
 
@@ -153,9 +154,9 @@ const DestinationDetails = () => {
                 </div>
 
                 {/* Share Buttons */}
-                {/* <div className="mt-5">
-                  <ShareButton post={destination} />
-                </div> */}
+                <div className="mt-5">
+                  <ShareLink post={destination} />
+                </div>
 
                 
               </div>
