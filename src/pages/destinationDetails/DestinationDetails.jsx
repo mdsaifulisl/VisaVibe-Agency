@@ -12,8 +12,6 @@ import {
 import DestinationsJsonData from "../../data/destinations.json";
 import Gallery from "../../components/shared/Gallery";
 
-import ShareButton from "../../components/shared/ShareButton";
-
 
 
 const DestinationDetails = () => {
@@ -155,9 +153,9 @@ const DestinationDetails = () => {
                 </div>
 
                 {/* Share Buttons */}
-                <div className="mt-5">
+                {/* <div className="mt-5">
                   <ShareButton post={destination} />
-                </div>
+                </div> */}
 
                 
               </div>
