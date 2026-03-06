@@ -11,10 +11,11 @@ import {
 import "../../assets/style/details.css";
 import Gallery from "../../components/shared/Gallery";
 import EnquiryForm from "../../components/shared/EnquiryForm";
-import ShareButton from "../../components/shared/ShareButton";
+
 
 
 import VisaJson from "../../data/visa.json";
+import ShareButton from "../../components/shared/ShareButton";
 
 const VisaDetails = () => {
   const { id } = useParams();

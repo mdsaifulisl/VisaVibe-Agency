@@ -2,7 +2,6 @@ import React from "react";
 import { FaShareAlt } from "react-icons/fa";
 
 const ShareButton = ({ post }) => {
-  // Optional Chaining ব্যবহার করা হয়েছে যাতে ডাটা না থাকলে এরর না দেয়
   const titledata = post?.title || "Travel Guide"; 
 
   const handleShare = async () => {
@@ -13,16 +12,16 @@ const ShareButton = ({ post }) => {
     };
 
     try {
-      // চেক করা হচ্ছে ব্রাউজার এবং এনভায়রনমেন্ট (HTTPS) সাপোর্ট করে কি না
+      
       if (navigator.share) {
         await navigator.share(shareData);
       } else {
-        // ডেস্কটপ বা আনসাপোর্টেড ব্রাউজারের জন্য ব্যাকআপ
+        
         await navigator.clipboard.writeText(window.location.href);
         alert("Link copied to clipboard! You can share it now.");
       }
     } catch (err) {
-      // ইউজার শেয়ার ক্যানসেল করলে যেন এরর না দেখায় তার জন্য চেক
+      
       if (err.name !== "AbortError") {
         console.error("Error sharing:", err);
       }
