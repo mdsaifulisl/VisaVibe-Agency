@@ -480,7 +480,7 @@
 
 .dot.active {
   background-color: var(--secondary-coral); /* Active Dot Coral */
-  width: 30px; /* একটি স্টাইলিশ লম্বাটে লুক */
+  width: 30px;
   border-radius: 10px;
 }
 

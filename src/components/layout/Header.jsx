@@ -21,6 +21,7 @@ const Header = () => {
     { name: "Air Tickets", path: "/air-tickets" },
     { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
+    { name: "Admin", path: "/admin" },
   ];
 
   useEffect(() => {

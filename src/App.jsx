@@ -1,68 +1,88 @@
 // Hooks
-import  { Routes, Route  } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 
 // style
-import './assets/style/shared.css';
-import './assets/style/pages.css';
+import "./assets/style/shared.css";
+import "./assets/style/pages.css";
 
+// Components (Public)
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import ScrollToTopSetter from "./components/layout/ScrollToTopSetter";
 
+// Layout & Pages (Admin) - এগুলো নতুন ইমপোর্ট করুন
+import AdminLayout from "./components/layout/AdminLayout";
+import Dashboard from "./pages/admin/Dashboard";
+import ManageTours from "./pages/admin/toure/ManageTours";
+import AddTour from "./pages/admin/toure/AddTour";
 
-// Components
-import Header from './components/layout/Header';  
-import Footer from './components/layout/Footer';
-import ScrollToTopSetter from './components/layout/ScrollToTopSetter';
-
-// Pages
-import ErrorPage from './pages/error/ErrorPage';
-import Home from './pages/home/Home';
-import About from './pages/about/About';
-import TourPage from './pages/tourPage/TourPage';
-import TourDetails from './pages/tourDetails/TourDetails';
-import BlogDetails from './pages/blogDetails/BlogDetails';
-import VisaService from './pages/visaService/VisaService';
-import VisaDetails from './pages/visaDetails/VisaDetails';
-import Destinations from './pages/destinations/Destinations';
-import DestinationDetails from './pages/destinationDetails/DestinationDetails';
-import BlogPage from './pages/blogPage/BlogPage';
-import AirTickets from './pages/airTicketDeals/AirTickets';
-import Contact from './pages/contact/Contact';
-import Login from './pages/login/Login';
+// Pages (Public)
+import ErrorPage from "./pages/error/ErrorPage";
+import Home from "./pages/home/Home";
+import About from "./pages/about/About";
+import TourPage from "./pages/tourPage/TourPage";
+import TourDetails from "./pages/tourDetails/TourDetails";
+import BlogDetails from "./pages/blogDetails/BlogDetails";
+import VisaService from "./pages/visaService/VisaService";
+import VisaDetails from "./pages/visaDetails/VisaDetails";
+import Destinations from "./pages/destinations/Destinations";
+import DestinationDetails from "./pages/destinationDetails/DestinationDetails";
+import BlogPage from "./pages/blogPage/BlogPage";
+import AirTickets from "./pages/airTicketDeals/AirTickets";
+import Contact from "./pages/contact/Contact";
+import Login from "./pages/login/Login";
 
 
 function App() {
- 
-
   return (
     <>
-      <Header />
-
       <ScrollToTopSetter />
 
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/destinations" element={<Destinations />} />
-          <Route path="/destinations/:id" element={<DestinationDetails />} />
-          <Route path="/tours" element={<TourPage />} />
-          <Route path="/tours/:id" element={<TourDetails />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:id" element={<BlogDetails />} />
-          <Route path="/visa-service" element={<VisaService />} />
-          <Route path="/visa-service/:id" element={<VisaDetails />} />
-          <Route path="/air-tickets" element={<AirTickets />} />
-          <Route path="/contact" element={<Contact />} />
+      <Routes>
+        
+        <Route
+          path="/*"
+          element={
+            <>
+              <Header />
+              <main>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/destinations" element={<Destinations />} />
+                  <Route
+                    path="/destinations/:id"
+                    element={<DestinationDetails />}
+                  />
+                  <Route path="/tours" element={<TourPage />} />
+                  <Route path="/tours/:id" element={<TourDetails />} />
+                  <Route path="/blog" element={<BlogPage />} />
+                  <Route path="/blog/:id" element={<BlogDetails />} />
+                  <Route path="/visa-service" element={<VisaService />} />
+                  <Route path="/visa-service/:id" element={<VisaDetails />} />
+                  <Route path="/air-tickets" element={<AirTickets />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="*" element={<ErrorPage />} />
+                </Routes>
+              </main>
+              <Footer />
+            </>
+          }
+        />
 
-          <Route path="/login" element={<Login />} />
+        {/* ২. অ্যাডমিন রুটস (Header/Footer ছাড়া আলাদা লেআউট) */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Dashboard />} />
+
+          <Route path="/admin/tours" element={<ManageTours />} />
+          <Route path="add-tour" element={<AddTour />} />
 
           <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </main>
-
-      {/* Footer */}
-      <Footer />
+        </Route>
+      </Routes>
     </>
-  )
+  );
 }
 
 export default App;
