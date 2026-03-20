@@ -3,10 +3,11 @@ import { NavLink } from "react-router-dom";
 import { 
   FaThLarge, 
   FaPlane, 
-  FaPassport, // Visa এর জন্য পারফেক্ট
-  FaMapMarkedAlt, // Destinations এর জন্য
-  FaPenNib, // Blog এর জন্য
-  FaInbox, // Inbox এর জন্য
+  FaPassport, 
+  FaMapMarkedAlt, 
+  FaPenNib, 
+  FaInbox, 
+  FaCog, // Settings আইকন
   FaSignOutAlt, 
   FaTimes 
 } from "react-icons/fa";
@@ -98,7 +99,20 @@ const Sidebar = ({ closeSidebar }) => {
       </ul>
       
       <hr className="opacity-10" />
-      <button className="btn btn-outline-danger d-flex align-items-center gap-2 border-0 mb-2 py-2">
+
+      {/* Settings Section */}
+      <div className="mb-2">
+        <NavLink 
+          to="/admin/settings" 
+          onClick={closeSidebar}
+          className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal shadow-sm rounded-2' : 'hover-bg-light opacity-75'}`}
+          style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
+        >
+          <FaCog /> <span className="small fw-bold">Settings</span>
+        </NavLink>
+      </div>
+
+      <button className="btn btn-outline-danger d-flex align-items-center gap-2 border-0 py-2">
         <FaSignOutAlt /> <span className="small fw-bold">Logout</span>
       </button>
     </div>

@@ -38,6 +38,8 @@ import ManageDestinations from "./pages/admin/admindestinations/ManageDestinatio
 import AddDestination from "./pages/admin/admindestinations/AddDestination";
 import ManageBlog from "./pages/admin/adminblog/ManageBlog";
 import AddBlog from "./pages/admin/adminblog/AddBlog";
+import ManageInbox from "./pages/admin/inbox/ManageInbox";
+import Settings from "./pages/admin/settings/Settings";
 
 function App() {
   return (
@@ -78,8 +80,10 @@ function App() {
 
         {/* ২. অ্যাডমিন রুটস (Header/Footer ছাড়া আলাদা লেআউট) */}
         <Route path="/admin" element={<AdminLayout />}>
+          {/* Dashboard */}
           <Route index element={<Dashboard />} />
 
+          {/* Tours */}
           <Route path="/admin/tours" element={<ManageTours />} />
           <Route path="add-tour" element={<AddTour />} />
           <Route path="edit-tour/:id" element={<AddTour />} />
@@ -98,6 +102,12 @@ function App() {
           <Route path="/admin/blog" element={<ManageBlog />} />
           <Route path="add-blog" element={<AddBlog />} />
           <Route path="edit-blog/:id" element={<AddBlog />} />
+
+          {/* Inbox */}
+          <Route path="/admin/inbox" element={<ManageInbox />} />
+
+          {/* Settings */}
+          <Route path="/admin/settings" element={<Settings />} />
 
           <Route path="*" element={<ErrorPage />} />
         </Route>
