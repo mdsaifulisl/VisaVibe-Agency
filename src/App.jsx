@@ -10,12 +10,6 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import ScrollToTopSetter from "./components/layout/ScrollToTopSetter";
 
-// Layout & Pages (Admin) - এগুলো নতুন ইমপোর্ট করুন
-import AdminLayout from "./components/layout/AdminLayout";
-import Dashboard from "./pages/admin/Dashboard";
-import ManageTours from "./pages/admin/toure/ManageTours";
-import AddTour from "./pages/admin/toure/AddTour";
-
 // Pages (Public)
 import ErrorPage from "./pages/error/ErrorPage";
 import Home from "./pages/home/Home";
@@ -32,6 +26,18 @@ import AirTickets from "./pages/airTicketDeals/AirTickets";
 import Contact from "./pages/contact/Contact";
 import Login from "./pages/login/Login";
 
+// Layout & Pages (Admin) - এগুলো নতুন ইমপোর্ট করুন
+import AdminLayout from "./components/layout/AdminLayout";
+import Dashboard from "./pages/admin/Dashboard";
+import ManageTours from "./pages/admin/toure/ManageTours";
+import AddTour from "./pages/admin/toure/AddTour";
+
+import Visa from "./pages/admin/VisaManagement/VisaManagement";
+import AddVisa from "./pages/admin/VisaManagement/AddVisa";
+import ManageDestinations from "./pages/admin/admindestinations/ManageDestinations";
+import AddDestination from "./pages/admin/admindestinations/AddDestination";
+import ManageBlog from "./pages/admin/adminblog/ManageBlog";
+import AddBlog from "./pages/admin/adminblog/AddBlog";
 
 function App() {
   return (
@@ -39,7 +45,6 @@ function App() {
       <ScrollToTopSetter />
 
       <Routes>
-        
         <Route
           path="/*"
           element={
@@ -77,6 +82,22 @@ function App() {
 
           <Route path="/admin/tours" element={<ManageTours />} />
           <Route path="add-tour" element={<AddTour />} />
+          <Route path="edit-tour/:id" element={<AddTour />} />
+
+          {/* visa */}
+          <Route path="/admin/visas" element={<Visa />} />
+          <Route path="add-visa" element={<AddVisa />} />
+          <Route path="edit-visa/:id" element={<AddVisa />} />
+
+          {/* Destinations */}
+          <Route path="/admin/destinations" element={<ManageDestinations />} />
+          <Route path="add-destination" element={<AddDestination />} />
+          <Route path="edit-destination/:id" element={<AddDestination />} />
+
+          {/* Blog */}
+          <Route path="/admin/blog" element={<ManageBlog />} />
+          <Route path="add-blog" element={<AddBlog />} />
+          <Route path="edit-blog/:id" element={<AddBlog />} />
 
           <Route path="*" element={<ErrorPage />} />
         </Route>

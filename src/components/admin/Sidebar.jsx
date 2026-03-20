@@ -1,13 +1,21 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { FaThLarge, FaPlane, FaFileAlt, FaUsers, FaSignOutAlt, FaTimes } from "react-icons/fa";
+import { 
+  FaThLarge, 
+  FaPlane, 
+  FaPassport, // Visa এর জন্য পারফেক্ট
+  FaMapMarkedAlt, // Destinations এর জন্য
+  FaPenNib, // Blog এর জন্য
+  FaInbox, // Inbox এর জন্য
+  FaSignOutAlt, 
+  FaTimes 
+} from "react-icons/fa";
 
 const Sidebar = ({ closeSidebar }) => {
   return (
     <div className="d-flex flex-column p-3 text-white h-100 shadow-lg">
       <div className="d-flex align-items-center justify-content-between mb-4 ps-2">
-        <span className="fs-4 fw-bold text-coral">Travel Admin</span>
-        {/* মোবাইলের জন্য ক্লোজ বাটন */}
+        <span className="fs-4 fw-bold" style={{ color: "var(--secondary-coral)" }}>Travel Admin</span>
         <button className="btn text-white d-lg-none p-0" onClick={closeSidebar}>
           <FaTimes size={20} />
         </button>
@@ -15,48 +23,83 @@ const Sidebar = ({ closeSidebar }) => {
       <hr className="opacity-10" />
       
       <ul className="nav nav-pills flex-column mb-auto gap-1">
+        {/* Dashboard */}
         <li className="nav-item">
           <NavLink 
             to="/admin" 
             end 
             onClick={closeSidebar}
-            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal' : 'hover-bg-light'}`}
+            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
+            style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
           >
             <FaThLarge /> <span className="small fw-bold">Dashboard</span>
           </NavLink>
         </li>
+
+        {/* Manage Tours */}
         <li>
           <NavLink 
             to="/admin/tours" 
             onClick={closeSidebar}
-            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal' : 'hover-bg-light'}`}
+            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
+            style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
           >
             <FaPlane /> <span className="small fw-bold">Manage Tours</span>
           </NavLink>
         </li>
+
+        {/* Manage Visa */}
         <li>
           <NavLink 
             to="/admin/visas" 
             onClick={closeSidebar}
-            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal' : 'hover-bg-light'}`}
+            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
+            style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
           >
-            <FaFileAlt /> <span className="small fw-bold">Visa Services</span>
+            <FaPassport /> <span className="small fw-bold">Manage Visa</span>
           </NavLink>
         </li>
+
+        {/* Manage Destinations */}
         <li>
           <NavLink 
-            to="/admin/bookings" 
+            to="/admin/destinations" 
             onClick={closeSidebar}
-            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal' : 'hover-bg-light'}`}
+            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
+            style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
           >
-            <FaUsers /> <span className="small fw-bold">Bookings</span>
+            <FaMapMarkedAlt /> <span className="small fw-bold">Manage Destinations</span>
+          </NavLink>
+        </li>
+
+        {/* Manage Blog */}
+        <li>
+          <NavLink 
+            to="/admin/blog" 
+            onClick={closeSidebar}
+            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
+            style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
+          >
+            <FaPenNib /> <span className="small fw-bold">Manage Blog</span>
+          </NavLink>
+        </li>
+
+        {/* Manage Inbox */}
+        <li>
+          <NavLink 
+            to="/admin/inbox" 
+            onClick={closeSidebar}
+            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
+            style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
+          >
+            <FaInbox /> <span className="small fw-bold">Manage Inbox</span>
           </NavLink>
         </li>
       </ul>
       
       <hr className="opacity-10" />
-      <button className="btn btn-outline-danger d-flex align-items-center gap-2 border-0 mb-2">
-        <FaSignOutAlt /> Logout
+      <button className="btn btn-outline-danger d-flex align-items-center gap-2 border-0 mb-2 py-2">
+        <FaSignOutAlt /> <span className="small fw-bold">Logout</span>
       </button>
     </div>
   );

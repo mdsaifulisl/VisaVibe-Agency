@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../admin/Sidebar";
 import AdminNavbar from "../admin/AdminNavbar";
-import "../../assets/style/admin.css";
+import "../../assets/style/admin.css"; 
 
 const AdminLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
