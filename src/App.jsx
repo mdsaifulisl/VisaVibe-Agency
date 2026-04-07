@@ -38,8 +38,13 @@ import ManageDestinations from "./pages/admin/admindestinations/ManageDestinatio
 import AddDestination from "./pages/admin/admindestinations/AddDestination";
 import ManageBlog from "./pages/admin/adminblog/ManageBlog";
 import AddBlog from "./pages/admin/adminblog/AddBlog";
+
+import AdminAirTickets from "./pages/admin/adminairtickiet/AdminAirTickets";
+import AddAirTicket from "./pages/admin/adminairtickiet/AddAirTicket";
+
 import ManageInbox from "./pages/admin/inbox/ManageInbox";
 import Settings from "./pages/admin/settings/Settings";
+
 
 function App() {
   return (
@@ -102,6 +107,11 @@ function App() {
           <Route path="/admin/blog" element={<ManageBlog />} />
           <Route path="add-blog" element={<AddBlog />} />
           <Route path="edit-blog/:id" element={<AddBlog />} />
+
+          {/* Air Tickets */}
+          <Route path="/admin/tickets" element={<AdminAirTickets />} />
+          <Route path="add-air-ticket" element={<AddAirTicket />} />
+          <Route path="edit-air-ticket/:id" element={<AddAirTicket />} />
 
           {/* Inbox */}
           <Route path="/admin/inbox" element={<ManageInbox />} />

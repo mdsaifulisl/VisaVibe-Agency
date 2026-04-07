@@ -73,7 +73,7 @@ const Settings = () => {
               <div className="animate__animated animate__fadeIn">
                 <h5 className="fw-bold mb-4">My Profile</h5>
                 <div className="d-flex align-items-center gap-4 mb-4 pb-3 border-bottom">
-                  <div className="position-relative">
+                  {/* <div className="position-relative">
                     <img 
                       src="https://i.ibb.co/L8N2YvX/user-placeholder.png" 
                       alt="Admin" 
@@ -84,7 +84,7 @@ const Settings = () => {
                       <FaCamera size={12} />
                       <input type="file" hidden />
                     </label>
-                  </div>
+                  </div> */}
                   <div>
                     <h5 className="mb-1 fw-bold">Md. Saiful Islam</h5>
                     <p className="text-muted small mb-0">Role: Super Admin</p>
@@ -166,6 +166,7 @@ const Settings = () => {
                     </div>
                     <div className="col-md-4">
                       <select className="form-select form-select-sm rounded-3">
+                        <option value="super-admin">Super Admin</option>
                         <option value="moderator">Moderator</option>
                         <option value="editor">Editor</option>
                       </select>

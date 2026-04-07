@@ -4,12 +4,14 @@ import {
   FaThLarge, 
   FaPlane, 
   FaPassport, 
+  FaTicketAlt, // Air Tickets এর জন্য আইকন
   FaMapMarkedAlt, 
   FaPenNib, 
   FaInbox, 
-  FaCog, // Settings আইকন
+  FaCog, 
   FaSignOutAlt, 
-  FaTimes 
+  FaTimes,
+  FaHome 
 } from "react-icons/fa";
 
 const Sidebar = ({ closeSidebar }) => {
@@ -21,7 +23,19 @@ const Sidebar = ({ closeSidebar }) => {
           <FaTimes size={20} />
         </button>
       </div>
-      <hr className="opacity-10" />
+
+      {/* Visit Website Button */}
+      <div className="mb-3">
+        <NavLink 
+          to="/" 
+          className="btn btn-light w-100 d-flex align-items-center justify-content-center gap-2 py-2 rounded-3 shadow-sm border-0"
+          style={{ color: "var(--primary-teal)", fontWeight: "bold", fontSize: "14px" }}
+        >
+          <FaHome /> Visit Website
+        </NavLink>
+      </div>
+
+      <hr className="opacity-10 mt-0" />
       
       <ul className="nav nav-pills flex-column mb-auto gap-1">
         {/* Dashboard */}
@@ -30,7 +44,7 @@ const Sidebar = ({ closeSidebar }) => {
             to="/admin" 
             end 
             onClick={closeSidebar}
-            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
+            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 border-0 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
             style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
           >
             <FaThLarge /> <span className="small fw-bold">Dashboard</span>
@@ -42,10 +56,22 @@ const Sidebar = ({ closeSidebar }) => {
           <NavLink 
             to="/admin/tours" 
             onClick={closeSidebar}
-            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
+            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 border-0 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
             style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
           >
             <FaPlane /> <span className="small fw-bold">Manage Tours</span>
+          </NavLink>
+        </li>
+
+        {/* Air Tickets - নতুন যোগ করা হয়েছে */}
+        <li>
+          <NavLink 
+            to="/admin/tickets" 
+            onClick={closeSidebar}
+            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 border-0 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
+            style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
+          >
+            <FaTicketAlt /> <span className="small fw-bold">Air Tickets</span>
           </NavLink>
         </li>
 
@@ -54,7 +80,7 @@ const Sidebar = ({ closeSidebar }) => {
           <NavLink 
             to="/admin/visas" 
             onClick={closeSidebar}
-            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
+            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 border-0 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
             style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
           >
             <FaPassport /> <span className="small fw-bold">Manage Visa</span>
@@ -66,7 +92,7 @@ const Sidebar = ({ closeSidebar }) => {
           <NavLink 
             to="/admin/destinations" 
             onClick={closeSidebar}
-            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
+            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 border-0 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
             style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
           >
             <FaMapMarkedAlt /> <span className="small fw-bold">Manage Destinations</span>
@@ -78,7 +104,7 @@ const Sidebar = ({ closeSidebar }) => {
           <NavLink 
             to="/admin/blog" 
             onClick={closeSidebar}
-            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
+            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 border-0 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
             style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
           >
             <FaPenNib /> <span className="small fw-bold">Manage Blog</span>
@@ -90,7 +116,7 @@ const Sidebar = ({ closeSidebar }) => {
           <NavLink 
             to="/admin/inbox" 
             onClick={closeSidebar}
-            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
+            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 border-0 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
             style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
           >
             <FaInbox /> <span className="small fw-bold">Manage Inbox</span>
@@ -105,7 +131,7 @@ const Sidebar = ({ closeSidebar }) => {
         <NavLink 
           to="/admin/settings" 
           onClick={closeSidebar}
-          className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 ${isActive ? 'bg-teal shadow-sm rounded-2' : 'hover-bg-light opacity-75'}`}
+          className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 border-0 ${isActive ? 'bg-teal shadow-sm rounded-2' : 'hover-bg-light opacity-75'}`}
           style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
         >
           <FaCog /> <span className="small fw-bold">Settings</span>
