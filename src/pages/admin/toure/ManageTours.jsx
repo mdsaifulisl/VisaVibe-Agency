@@ -41,10 +41,12 @@ const ManageTours = () => {
           <h3 className="fw-bold mb-1" style={{ color: "var(--primary-teal)" }}>Tour Management</h3>
           <p className="text-muted small mb-0">Showing {filteredTours.length} of {tours.length} packages</p>
         </div>
-        <Link to="/admin/add-tour" className="btn shadow-sm px-4 py-2 rounded-pill fw-bold text-white" 
+        <div>
+          <Link to="/admin/add-tour" className="btn shadow-sm px-4 py-2 rounded-pill fw-bold text-white" 
           style={{ backgroundColor: "var(--primary-teal)" }}>
           <FaPlus className="me-2" /> Add New Package
         </Link>
+        </div>
       </div>
 
       {/* Filter Component - আলাদা ফাইল থেকে আসছে */}

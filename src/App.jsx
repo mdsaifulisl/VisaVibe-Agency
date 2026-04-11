@@ -45,6 +45,15 @@ import AddAirTicket from "./pages/admin/adminairtickiet/AddAirTicket";
 import ManageInbox from "./pages/admin/inbox/ManageInbox";
 import Settings from "./pages/admin/settings/Settings";
 
+// Admins and Moderators
+import AdminsAndMods from "./pages/admin/AdminsAndMods/AdminsAndMods";
+import AddTeamMember from "./pages/admin/AdminsAndMods/AddTeamMember";
+import AdminProfile from "./pages/admin/AdminsAndMods/AdminProfile";
+
+// Admin Hero Slider
+import AdminHeroSlider from "./pages/admin/adminheroslider/adminheroslider";
+import AddSlider from "./pages/admin/adminheroslider/AddSlider";
+import AddFAQ from "./pages/admin/adminheroslider/AddFAQ";
 
 function App() {
   return (
@@ -88,37 +97,66 @@ function App() {
           {/* Dashboard */}
           <Route index element={<Dashboard />} />
 
+          {/* Admins & Mods */}
+          <Route path="/admin/slider-fqn-and-about" element={< AdminHeroSlider />} />
+          <Route path="add-slider" element={<AddSlider />} />
+          <Route path="edit-slider/:id" element={<AddSlider />} />
+
+          <Route path="add-faq" element={<AddFAQ />} />
+          <Route path="edit-faq/:id" element={<AddFAQ />} />
+
           {/* Tours */}
           <Route path="/admin/tours" element={<ManageTours />} />
           <Route path="add-tour" element={<AddTour />} />
           <Route path="edit-tour/:id" element={<AddTour />} />
+
 
           {/* visa */}
           <Route path="/admin/visas" element={<Visa />} />
           <Route path="add-visa" element={<AddVisa />} />
           <Route path="edit-visa/:id" element={<AddVisa />} />
 
+
           {/* Destinations */}
           <Route path="/admin/destinations" element={<ManageDestinations />} />
           <Route path="add-destination" element={<AddDestination />} />
           <Route path="edit-destination/:id" element={<AddDestination />} />
+
 
           {/* Blog */}
           <Route path="/admin/blog" element={<ManageBlog />} />
           <Route path="add-blog" element={<AddBlog />} />
           <Route path="edit-blog/:id" element={<AddBlog />} />
 
+
           {/* Air Tickets */}
           <Route path="/admin/tickets" element={<AdminAirTickets />} />
           <Route path="add-air-ticket" element={<AddAirTicket />} />
           <Route path="edit-air-ticket/:id" element={<AddAirTicket />} />
 
+
           {/* Inbox */}
           <Route path="/admin/inbox" element={<ManageInbox />} />
 
+
+          {/* Admins and Mods */}
+          <Route path="/admin/users" element={<AdminsAndMods />} />
+          <Route path="add-admin-and-moderator" element={<AddTeamMember />} />
+          <Route
+            path="edit-admin-and-moderator/:id"
+            element={<AddTeamMember />}
+          />
+          <Route path="/admin/profile" element={<AdminProfile />} />{" "}
+          {/* My Profile */}
+          <Route
+            path="/admin/view-profile/:id"
+            element={<AdminProfile />}
+          />{" "}
+
+
+          {/* View Others */}
           {/* Settings */}
           <Route path="/admin/settings" element={<Settings />} />
-
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

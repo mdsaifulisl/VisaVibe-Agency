@@ -31,7 +31,7 @@ const DestinationDetails = () => {
 
   return (
     <div
-      className="destination-details py-5"
+      className="destination-details py-5 overflow-hidden"
       style={{ backgroundColor: "var(--accent-alice-blue)" }}
     >
       <div className="container">

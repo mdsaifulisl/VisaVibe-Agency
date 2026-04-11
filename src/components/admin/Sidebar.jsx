@@ -3,20 +3,22 @@ import { NavLink } from "react-router-dom";
 import { 
   FaThLarge, 
   FaPlane, 
-  FaPassport, 
-  FaTicketAlt, // Air Tickets এর জন্য আইকন
+  FaPassport,  
+  FaTicketAlt, 
   FaMapMarkedAlt, 
   FaPenNib, 
   FaInbox, 
   FaCog, 
   FaSignOutAlt, 
   FaTimes,
-  FaHome 
+  FaHome,
+  FaUsersCog,
+  FaImages // Slider/Hero Section এর জন্য নতুন আইকন
 } from "react-icons/fa";
 
 const Sidebar = ({ closeSidebar }) => {
   return (
-    <div className="d-flex flex-column p-3 text-white h-100 shadow-lg">
+    <div className="d-flex flex-column p-3 text-white h-100 shadow-lg overflow-auto">
       <div className="d-flex align-items-center justify-content-between mb-4 ps-2">
         <span className="fs-4 fw-bold" style={{ color: "var(--secondary-coral)" }}>Travel Admin</span>
         <button className="btn text-white d-lg-none p-0" onClick={closeSidebar}>
@@ -39,7 +41,7 @@ const Sidebar = ({ closeSidebar }) => {
       
       <ul className="nav nav-pills flex-column mb-auto gap-1">
         {/* Dashboard */}
-        <li className="nav-item">
+        <li>
           <NavLink 
             to="/admin" 
             end 
@@ -48,6 +50,18 @@ const Sidebar = ({ closeSidebar }) => {
             style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
           >
             <FaThLarge /> <span className="small fw-bold">Dashboard</span>
+          </NavLink>
+        </li>
+
+        {/* Hero Slider Management - নতুন যোগ করা হয়েছে */}
+        <li>
+          <NavLink 
+            to="/admin/slider-fqn-and-about" 
+            onClick={closeSidebar}
+            className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 border-0 ${isActive ? 'bg-teal shadow-sm' : 'hover-bg-light'}`}
+            style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
+          >
+            <FaImages /> <span className="small fw-bold">Hero Slider</span>
           </NavLink>
         </li>
 
@@ -63,7 +77,7 @@ const Sidebar = ({ closeSidebar }) => {
           </NavLink>
         </li>
 
-        {/* Air Tickets - নতুন যোগ করা হয়েছে */}
+        {/* Air Tickets */}
         <li>
           <NavLink 
             to="/admin/tickets" 
@@ -126,12 +140,24 @@ const Sidebar = ({ closeSidebar }) => {
       
       <hr className="opacity-10" />
 
+      {/* Admin & Moderator Section */}
+      <div className="mb-1">
+        <NavLink 
+          to="/admin/users" 
+          onClick={closeSidebar}
+          className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 border-0 p-2 ${isActive ? 'bg-teal shadow-sm rounded-2' : 'hover-bg-light opacity-75'}`}
+          style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
+        >
+          <FaUsersCog /> <span className="small fw-bold">Admins & Mods</span>
+        </NavLink>
+      </div>
+
       {/* Settings Section */}
       <div className="mb-2">
         <NavLink 
           to="/admin/settings" 
           onClick={closeSidebar}
-          className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 py-2 border-0 ${isActive ? 'bg-teal shadow-sm rounded-2' : 'hover-bg-light opacity-75'}`}
+          className={({ isActive }) => `nav-link text-white d-flex align-items-center gap-3 p-2 border-0 ${isActive ? 'bg-teal shadow-sm rounded-2' : 'hover-bg-light opacity-75'}`}
           style={({ isActive }) => isActive ? { backgroundColor: "var(--primary-teal)" } : {}}
         >
           <FaCog /> <span className="small fw-bold">Settings</span>

@@ -44,7 +44,7 @@ const BlogDetails = () => {
   }
 
   return (
-    <div className="blog-details-page pb-5">
+    <div className="blog-details-page pb-5 overflow-hidden">
       {/* Hero Header */}
       <section className="blog-detail-hero py-5" style={{ backgroundColor: 'var(--accent-alice-blue)' }}>
         <div className="container">

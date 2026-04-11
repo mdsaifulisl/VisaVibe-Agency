@@ -28,7 +28,7 @@ const AdminAirTickets = () => {
   return (
     <div className="animate__animated animate__fadeIn">
       {/* Header Section */}
-      <div className="d-flex justify-content-between align-items-center mb-4">
+      <div className="d-flex justify-content-between flex-wrap align-items-center mb-4">
         <div>
           <h3 className="fw-bold mb-1" style={{ color: "var(--primary-teal)" }}>Air Tickets</h3>
           <p className="text-muted small">Manage flight routes, airlines, and pricing</p>

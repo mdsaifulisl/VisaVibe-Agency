@@ -51,7 +51,7 @@ const VisaDetails = () => {
   }
 
   return (
-    <div className="visa-details-page pb-5">
+    <div className="visa-details-page pb-5 overflow-hidden">
       {/* Banner Section with Dynamic Image Control */}
       <div
         className="visa-detail-header text-white d-flex align-items-center position-relative overflow-hidden"

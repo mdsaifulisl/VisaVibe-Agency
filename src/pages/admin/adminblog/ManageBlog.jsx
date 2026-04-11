@@ -37,10 +37,12 @@ const ManageBlog = () => {
           <h3 className="fw-bold mb-1" style={{ color: "var(--primary-teal)" }}>Blog Articles</h3>
           <p className="text-muted small mb-0">Manage and publish your travel guides and news</p>
         </div>
-        <Link to="/admin/add-blog" className="btn shadow-sm px-4 py-2 rounded-pill fw-bold text-white" 
-          style={{ backgroundColor: "var(--primary-teal)" }}>
-          <FaPlus className="me-2" /> Create Post
-        </Link>
+        <div>
+          <Link to="/admin/add-blog" className="btn shadow-sm px-4 py-2 rounded-pill fw-bold text-white" 
+            style={{ backgroundColor: "var(--primary-teal)" }}>
+            <FaPlus className="me-2" /> Create Post
+          </Link>
+        </div>
       </div>
 
       <FilterBar 

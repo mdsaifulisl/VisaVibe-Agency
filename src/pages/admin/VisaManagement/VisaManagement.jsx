@@ -31,15 +31,17 @@ const VisaManagement = () => {
   return (
     <div className="animate__animated animate__fadeIn">
       {/* Header */}
-      <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+      <div className="d-flex flex-column  justify-content-between flex-md-row align-items-md-center mb-4 gap-3">
         <div>
           <h3 className="fw-bold mb-1" style={{ color: "var(--primary-teal)" }}>Visa Management</h3>
           <p className="text-muted small mb-0">Manage visa requirements and application details</p>
         </div>
-        <Link to="/admin/add-visa" className="btn shadow-sm px-4 py-2 rounded-pill fw-bold text-white" 
+        <div>
+          <Link to="/admin/add-visa" className="btn shadow-sm px-4 py-2 rounded-pill fw-bold text-white" 
           style={{ backgroundColor: "var(--primary-teal)" }}>
           <FaPlus className="me-2" /> Add New Visa
         </Link>
+        </div>
       </div>
 
       {/* FilterBar */}

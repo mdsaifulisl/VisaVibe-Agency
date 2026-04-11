@@ -50,10 +50,12 @@ const ManageDestinations = () => {
           <h3 className="fw-bold mb-1" style={{ color: "var(--primary-teal)" }}>Destinations</h3>
           <p className="text-muted small mb-0">Manage your featured spots and destination details</p>
         </div>
-        <Link to="/admin/add-destination" className="btn shadow-sm px-4 py-2 rounded-pill fw-bold text-white" 
+        <div>
+          <Link to="/admin/add-destination" className="btn shadow-sm px-4 py-2 rounded-pill fw-bold text-white" 
           style={{ backgroundColor: "var(--primary-teal)" }}>
           <FaPlus className="me-2" /> Add New Spot
         </Link>
+        </div>
       </div>
 
       <FilterBar 

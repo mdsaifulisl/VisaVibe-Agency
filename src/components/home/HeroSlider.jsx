@@ -9,7 +9,8 @@ const sliderData = [
     headline: "Dream Your Next Vacation",
     subtext: "Explore the most beautiful beaches in the world",
     btn1: "Explore Beaches",
-    btn2: "Learn More"
+    btn2: "Learn More",
+    link: "/destinations",
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ const sliderData = [
     headline: "Adventure Awaits",
     subtext: "Trekking, hiking & mountain tours",
     btn1: "Start Adventure",
-    btn2: "View Tours"
+    btn2: "View Tours",
+    link: "/tours",
   },
   {
     id: 3,
@@ -25,7 +27,8 @@ const sliderData = [
     headline: "City Breaks",
     subtext: "Discover vibrant cities & cultures",
     btn1: "Explore Cities",
-    btn2: "See Deals"
+    btn2: "See Deals",
+    link: "/visa-service"
   },
   {
     id: 4,
@@ -33,7 +36,8 @@ const sliderData = [
     headline: "Wildlife & Nature",
     subtext: "Get close to nature with our safari tours",
     btn1: "Discover Wildlife",
-    btn2: "Book Now"
+    btn2: "Book Now",
+    link: "/air-tickets"
   }
 ];
 
@@ -62,8 +66,8 @@ const HeroSlider = () => {
                   <h1 className="display-3 fw-bold mb-3 animate-up">{slide.headline}</h1>
                   <p className="lead mb-4 animate-down">{slide.subtext}</p>
                   <div className="d-flex justify-content-center gap-3 animate-up">
-                    <button className="btn btn-coral px-4 py-2 fw-bold">Discover Wildlife</button>
-                    <button className="btn btn-outline-light px-4 py-2 fw-bold">View Tours</button>
+                    <button className="btn btn-coral px-4 py-2 fw-bold">{slide.btn1}</button>
+                    <button className="btn btn-outline-light px-4 py-2 fw-bold">{slide.btn2}</button>
                   </div>
                 </div>
               </div>
