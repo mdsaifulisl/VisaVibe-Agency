@@ -51,7 +51,7 @@ import AddTeamMember from "./pages/admin/AdminsAndMods/AddTeamMember";
 import AdminProfile from "./pages/admin/AdminsAndMods/AdminProfile";
 
 // Admin Hero Slider
-import AdminHeroSlider from "./pages/admin/adminheroslider/adminheroslider";
+import AdminHeroSlider from "./pages/admin/adminheroslider/AdminHeroSliders";
 import AddSlider from "./pages/admin/adminheroslider/AddSlider";
 import AddFAQ from "./pages/admin/adminheroslider/AddFAQ";
 
