@@ -14,12 +14,12 @@ const Header = () => {
   // মেনু আইটেমগুলো এক জায়গায় রাখা হলো
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
     { name: "Destinations", path: "/destinations" },
     { name: "Tours", path: "/tours" },
     { name: "Visa Service", path: "/visa-service" },
     { name: "Air Tickets", path: "/air-tickets" },
     { name: "Blog", path: "/blog" },
+    { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
     { name: "Admin", path: "/admin" },
   ];
